@@ -1,0 +1,138 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio Diaz Rahardi</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes glow {
+      0% { box-shadow: 0 0 5px #a855f7, 0 0 10px #a855f7, 0 0 15px #9333ea; }
+      50% { box-shadow: 0 0 15px #c084fc, 0 0 25px #a855f7, 0 0 35px #6b21a8; }
+      100% { box-shadow: 0 0 5px #a855f7, 0 0 10px #a855f7, 0 0 15px #9333ea; }
+    }
+    .animate-glow {
+      animation: glow 3s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-[#0f0c29] via-[#302b63] to-[#24243e] text-white font-sans">
+
+  <!-- Navbar -->
+  <nav class="flex justify-between items-center px-6 py-4 border-b border-white/10">
+    <div class="font-bold text-lg">Diaz</div>
+    <button onclick="toggleLang()" class="hover:text-yellow-300" id="langBtn">🇮🆞 Bahasa</button>
+  </nav>
+
+  <!-- Hero -->
+  <section class="text-center py-20 px-4">
+    <div class="mx-auto w-28 h-28 rounded-full overflow-hidden border-4 border-purple-500 cursor-pointer shadow-lg animate-glow">
+      <img src="https://i.imgur.com/w6B8uIN.jpg" alt="Profile" class="w-full h-full object-cover" />
+    </div>
+    <div class="text-4xl md:text-5xl font-bold mt-6">Muhammad Diaz Rahardi Putra</div>
+    <p class="mt-4 text-lg md:text-xl text-purple-300" id="heroDesc">
+      AI Engineer & Pengembang Solusi Berbasis Kecerdasan Buatan
+    </p>
+  </section>
+
+  <!-- Skills -->
+  <section class="max-w-6xl mx-auto px-4 py-12 grid md:grid-cols-3 gap-6" id="expSection"></section>
+
+  <!-- Stats -->
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <h3 class="text-2xl font-bold text-center mb-8" id="statTitle">Statistik & Interaksi</h3>
+    <div class="grid md:grid-cols-3 gap-6 text-center">
+      <div class="bg-white/10 rounded-xl p-8 shadow-md">
+        <div class="text-4xl font-bold text-purple-200 mb-2">100+</div>
+        <div class="text-sm text-purple-300" id="stat1">Total Klien</div>
+      </div>
+      <div class="bg-white/10 rounded-xl p-8 shadow-md">
+        <div class="text-4xl font-bold text-purple-200 mb-2">5K+</div>
+        <div class="text-sm text-purple-300" id="stat2">Like Proyek</div>
+      </div>
+      <div class="bg-white/10 rounded-xl p-8 shadow-md">
+        <div class="text-4xl font-bold text-purple-200 mb-2">3</div>
+        <div class="text-sm text-purple-300" id="stat3">Tahun Pengalaman</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="text-center py-20">
+    <h4 class="text-2xl font-semibold mb-4" id="contactTitle">Tertarik bekerja sama?</h4>
+    <p class="text-purple-200 mb-8" id="contactDesc">Klik tombol di bawah untuk langsung terhubung via WhatsApp.</p>
+    <a href="https://wa.me/6283179524847?text=Halo%2C%20saya%20tertarik%20dengan%20jasa%20Anda." target="_blank" class="inline-block px-6 py-3 bg-green-500 hover:bg-green-400 text-white font-bold rounded-xl transition">
+      WhatsApp
+    </a>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center text-sm text-purple-300 py-6 border-t border-white/10">
+    © 2025 Muhammad Diaz Rahardi Putra
+  </footer>
+
+  <!-- Script -->
+  <script>
+    const descriptions = {
+      "Machine Learning": {
+        id: "Membangun model prediktif dari data nyata. Nggak cuma teori—ini tentang membuat mesin bisa belajar dari pengalaman.",
+        en: "Building predictive models from real-world data. Not just theory—this is about teaching machines to learn from experience."
+      },
+      "Deep Learning": {
+        id: "Dari pengenalan wajah sampai suara—saya bikin sistem yang bisa mikir mirip manusia, tapi lebih cepat.",
+        en: "From facial recognition to speech—I'm building systems that think like humans, only faster."
+      },
+      "AI Integration": {
+        id: "Ngelink-in AI ke dalam aplikasi atau workflow biar hasilnya lebih cerdas, efisien, dan otomatis.",
+        en: "Plugging AI into apps or workflows to make them smarter, faster, and more automated."
+      },
+      "Data Engineering": {
+        id: "Data itu bahan bakar AI. Saya siapin semua datanya biar bersih, rapi, dan siap dipakai buat analisis.",
+        en: "Data is the fuel for AI. I make sure it’s clean, organized, and ready for action."
+      },
+      "Prompt Engineering": {
+        id: "Bikin AI kayak ChatGPT lebih paham dan responsif lewat racikan prompt yang tepat.",
+        en: "Crafting the perfect prompts so AI like ChatGPT understands and responds just right."
+      },
+      "AI Solution Architect": {
+        id: "Mendesain solusi AI dari nol, dari ide sampai jalan beneran. Fokusnya: impact nyata buat user.",
+        en: "Designing AI solutions from scratch—idea to execution. Always focused on real user impact."
+      }
+    };
+
+    let lang = "id";
+    function toggleLang() {
+      lang = lang === "id" ? "en" : "id";
+      document.getElementById("langBtn").textContent = lang === "id" ? "🇬🇧 English" : "🇮🆞 Bahasa";
+      document.getElementById("heroDesc").textContent = lang === "id"
+        ? "AI Engineer & Pengembang Solusi Berbasis Kecerdasan Buatan"
+        : "AI Engineer & Developer of AI-Based Solutions";
+      document.getElementById("statTitle").textContent = lang === "id" ? "Statistik & Interaksi" : "Statistics & Engagement";
+      document.getElementById("stat1").textContent = lang === "id" ? "Total Klien" : "Total Clients";
+      document.getElementById("stat2").textContent = lang === "id" ? "Like Proyek" : "Project Likes";
+      document.getElementById("stat3").textContent = lang === "id" ? "Tahun Pengalaman" : "Years of Experience";
+      document.getElementById("contactTitle").textContent = lang === "id" ? "Tertarik bekerja sama?" : "Interested in collaborating?";
+      document.getElementById("contactDesc").textContent = lang === "id"
+        ? "Klik tombol di bawah untuk langsung terhubung via WhatsApp."
+        : "Click the button below to contact via WhatsApp instantly.";
+      renderDescriptions();
+    }
+
+    function renderDescriptions() {
+      const section = document.getElementById("expSection");
+      section.innerHTML = "";
+      Object.entries(descriptions).forEach(([title, text]) => {
+        const box = document.createElement("div");
+        box.className = "bg-white/10 backdrop-blur-md rounded-xl p-6 text-center shadow-md";
+        box.innerHTML = `
+          <h4 class="text-xl font-semibold text-purple-200 mb-2">${title}</h4>
+          <p class="text-sm text-purple-100">${text[lang]}</p>
+        `;
+        section.appendChild(box);
+      });
+    }
+
+    renderDescriptions();
+  </script>
+</body>
+</html>
